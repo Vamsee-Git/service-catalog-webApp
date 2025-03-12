@@ -83,44 +83,6 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
 }
 POLICY
 } 
-resource "aws_iam_role" "launch_role" {
-  name = "SCLaunch-HelloWorld"
-  assume_role_policy = <<POLICY
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "GivePermissionsToServiceCatalog",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "servicecatalog.amazonaws.com"
-            },
-            "Action": "sts:AssumeRole"
-        },
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::664418994073:root"
-            },
-            "Action": "sts:AssumeRole",
-            "Condition": {
-                "StringLike": {
-                    "aws:PrincipalArn": [
-                        "arn:aws:iam::664418994073:role/TerraformEngine/TerraformExecutionRole*",
-                        "arn:aws:iam::664418994073:role/TerraformEngine/ServiceCatalogExternalParameterParserRole*",
-                        "arn:aws:iam::664418994073:role/TerraformEngine/ServiceCatalogTerraformOSParameterParserRole*"
-                    ]
-                }
-            }
-        }
-    ]
-}
-POLICY
-} 
-resource "aws_iam_role_policy_attachment" "launch_role_policy_attachment" {
-  role       = aws_iam_role.launch_role.name
-  policy_arn = aws_iam_policy.ec2_servicecatalog_policy.arn
-}
 
 resource "aws_iam_policy" "ec2_servicecatalog_policy" {
   name        = "hello-world"
