@@ -1,0 +1,47 @@
+name: Terraform infra service catalog
+ 
+on:
+  workflow_dispatch:
+ 
+permissions:
+  id-token: write
+  contents: read
+ 
+jobs:
+  terraform-infra-service-catalog:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+ 
+    - name: AWS credentials with OIDC
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        role-to-assume: arn:aws:iam::664418994073:role/service-catalog-webApp-github
+        aws-region: ap-south-1
+ 
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.0
+ 
+    - name: Terraform Init
+      run: |
+       cd infra
+       terraform init
+ 
+    - name: Terraform Validate
+      run: |
+       cd infra
+       terraform validate
+ 
+    - name: Terraform Plan
+      run: |
+       cd infra 
+       terraform plan
+ 
+    - name: Terraform Apply
+      run: |
+       cd infra
+       terraform apply -auto-approve
