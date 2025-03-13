@@ -1,6 +1,6 @@
 resource "aws_iam_user_policy_attachment" "example" {
   user       = var.user_name
-  policy_arn = "arn:aws:iam::aws:policy/ServiceCatalogUserPolicy"
+  policy_arn = "arn:aws:iam::aws:policy/AWSServiceCatalogEndUserFullAccess"
 }
 resource "aws_iam_policy" "ec2_servicecatalog_policy" {
   name        = "hello-world"
