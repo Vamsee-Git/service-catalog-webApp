@@ -60,7 +60,19 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "tag:UntagResources"
             ],
             "Resource": "*"
-        }
+        },
+        {
+            "Sid": "AllowDBCreationPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "rds:CreateDBInstance",
+                "rds:CreateDBSubnetGroup",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeAvailabilityZones"
+            ],
+              "Resource": "*"
+          }
     ]
 }
 POLICY
