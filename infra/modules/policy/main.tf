@@ -71,7 +71,11 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "rds:DescribeDBSubnetGroups",
                 "ec2:DescribeVpcs",
                 "ec2:DescribeSubnets",
-                "ec2:DescribeAvailabilityZones"
+                "ec2:DescribeAvailabilityZones",
+                "rds:ModifyDBInstance",
+                "rds:DeleteDBInstance",
+                "rds:ModifyDBSubnetGroup",
+                "rds:DeleteDBSubnetGroup"
             ],
               "Resource": "*"
           }
