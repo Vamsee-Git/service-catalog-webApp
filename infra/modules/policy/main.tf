@@ -75,7 +75,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "rds:ModifyDBInstance",
                 "rds:DeleteDBInstance",
                 "rds:ModifyDBSubnetGroup",
-                "rds:DeleteDBSubnetGroup"
+                "rds:DeleteDBSubnetGroup",
                 "rds:ListTagsForResource"
             ],
               "Resource": "*"
