@@ -15,7 +15,7 @@ module "product" {
   support_description = "Support for this product"
   artifact_name     = "TerraformArtifact"
   artifact_description = "Terraform template for provisioning resources"
-  template_url      = "https://s3-terraformtemplate-bucketdfghghj.s3.ap-south-1.amazonaws.com/s3bucket.tar.gz"
+  template_url      = "https://s3-terraformtemplate-bucketdfghghj.s3.ap-south-1.amazonaws.com/webapp1.tar.gz"
   portfolio_id      = module.portfolio.portfolio_id
   role_arn          = module.policy.role_arn
 }
