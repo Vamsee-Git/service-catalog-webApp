@@ -68,6 +68,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "rds:CreateDBInstance",
                 "rds:CreateDBSubnetGroup",
                 "rds:AddTagsToResource",
+                "rds:DescribeDBSubnetGroups",
                 "ec2:DescribeVpcs",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeAvailabilityZones"
